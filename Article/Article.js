@@ -157,10 +157,9 @@ let articles = document.querySelector('.articles');
 //map articles?
 data.forEach((obj)=>{
   const component = articleCreator(obj)
+  //append to articles Div
   articles.appendChild(component);
 
-
 })
-//append to articles Div
 
 
