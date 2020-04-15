@@ -118,14 +118,14 @@ function articleCreator(obj){
     articleDiv.classList.add('article');
 
   // <h2>{title of the article}</h2>
-    let h2 = document.createElement('h2');  //create h2
-    h2.textContent = obj.title;          //set title as text
+    let h2 = document.createElement('h2');
+    h2.textContent = obj.title;          
     articleDiv.appendChild(h2);
    // <p class="date">{date of the article}</p>
-    let date = document.createElement('p');  //create p
-    date.classList.add('date');              //with "date" class
+    let date = document.createElement('p');
+    date.classList.add('date');              
     date.textContent = obj.date; 
-    articleDiv.appendChild(date);       //set text
+    articleDiv.appendChild(date); 
 
   //  {three separate paragraph elements}
     let para1 = document.createElement('p');
@@ -139,12 +139,13 @@ function articleCreator(obj){
     articleDiv.appendChild(para3);
   //  <span class='expandButton'></span>
   //creates span and adds class
-  let buttonSpan = document.createElement('span');  
+  let buttonSpan = document.createElement('span');
+    buttonSpan.textContent = "Read More";  
     buttonSpan.classList.add('expandButton');
     articleDiv.appendChild(buttonSpan);
    //event listener to expandButton span -toggle the class 'article-open' on the 'article' div.
-  buttonSpan.addEventListener('click', (event)=>{
-    article.classList.toggle('article-open');
+  buttonSpan.addEventListener('click', ()=>{
+    articleDiv.classList.toggle('article-open');
   })
    //Step 3: return the entire component.
   console.log(articleDiv);
