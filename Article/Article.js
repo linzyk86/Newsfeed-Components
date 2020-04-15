@@ -112,3 +112,54 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+function articleCreator(obj){
+  //<div class="article">
+    let articleDiv = document.createElement('div');
+    articleDiv.classList.add('article');
+
+  // <h2>{title of the article}</h2>
+    let h2 = document.createElement('h2');
+    h2.textContent = obj.title;          
+    articleDiv.appendChild(h2);
+   // <p class="date">{date of the article}</p>
+    let date = document.createElement('p');
+    date.classList.add('date');              
+    date.textContent = obj.date; 
+    articleDiv.appendChild(date); 
+
+  //  {three separate paragraph elements}
+    let para1 = document.createElement('p');
+    para1.textContent = obj.firstParagraph;
+    articleDiv.appendChild(para1);
+    let para2 = document.createElement('p');
+    para2.textContent = obj.secondParagraph;
+    articleDiv.appendChild(para2);
+    let para3 = document.createElement('p');
+    para3.textContent = obj.thirdParagraph;
+    articleDiv.appendChild(para3);
+  //  <span class='expandButton'></span>
+  //creates span and adds class
+  let buttonSpan = document.createElement('span');
+    buttonSpan.textContent = "Read More";  
+    buttonSpan.classList.add('expandButton');
+    articleDiv.appendChild(buttonSpan);
+   //event listener to expandButton span -toggle the class 'article-open' on the 'article' div.
+  buttonSpan.addEventListener('click', ()=>{
+    articleDiv.classList.toggle('article-open');
+  })
+   //Step 3: return the entire component.
+  console.log(articleDiv);
+  return articleDiv;
+}
+let articles = document.querySelector('.articles');
+
+//Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+//map articles?
+data.forEach((obj)=>{
+  const component = articleCreator(obj)
+  //append to articles Div
+  articles.appendChild(component);
+
+})
+
+
